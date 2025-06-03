@@ -47,6 +47,9 @@
   display: flex;
   list-style: none;
   gap: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .menu__link {
   font-size: 16px;
@@ -55,8 +58,20 @@
   gap: 20px;
   text-decoration: none;
   color: #000000;
-  display: flex;
-  align-items: center;
+}
+.menu__link img {
+  margin-inline-start: 10px;
+}
+.menu li:last-child .menu__link {
+  background-color: #20B15A;
+  line-height: 1.5;
+  font-weight: 400;
+  color: #FFFFFF;
+  border-radius: 20px;
+  inline-size: 114px;
+  block-size: 54px;
+  padding-block: 15px;
+  padding-inline: 15px;
 }
 
 .content {
@@ -64,9 +79,10 @@
 }
 
 .conteiner {
-  max-inline-size: 1567px;
+  max-inline-size: 1467px;
   padding-inline-start: 20px;
   padding-inline-end: 20px;
+  margin-inline: auto;
 }
 
 .block1 {
@@ -89,6 +105,7 @@
   inline-size: 550px;
   gap: 10px;
   margin-block-start: 156px;
+  margin-block-end: 80px;
 }
 .block1 .block1__title {
   font-family: "Poppins", serif;
@@ -132,6 +149,108 @@
   background-color: #F8FFF9;
 }
 .block1 .partners img {
-  inline-size: 88px;
+  inline-size: 114px;
   block-size: 29px;
+}
+
+.block2__conteiner {
+  inline-size: 495px;
+}
+.block2__title {
+  font-family: "Poppins", serif;
+  font-size: 20px;
+  line-height: 1.5;
+  font-weight: 500;
+  color: #20B15A;
+  margin-block-start: 67px;
+}
+.block2__subtitle {
+  font-family: "Poppins", serif;
+  font-size: 30px;
+  line-height: 1.5;
+  font-weight: 600;
+  margin-block-start: 15px;
+}
+.block2__carts {
+  display: flex;
+  justify-content: space-between;
+  margin-block-start: 90px;
+  margin-block-end: 100px;
+}
+.block2__cart {
+  inline-size: 300px;
+}
+.block2__achievements {
+  inline-size: 100%;
+  block-size: 420px;
+  background-color: #FAFFFB;
+}
+
+.cart {
+  gap: 20px;
+}
+.cart__img {
+  inline-size: 93px;
+  block-size: 93px;
+}
+.cart__title {
+  font-family: "Poppins", serif;
+  font-size: 24px;
+  line-height: 1.5;
+  font-weight: 600;
+  margin-block-start: 15px;
+  margin-block-end: 15px;
+}
+.cart__text {
+  font-family: "Avenir", serif;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 400;
+}
+.cart__link {
+  font-family: "Avenir", serif;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 400;
+  color: #000;
+  margin-block-start: 60px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.achievements__box {
+  inline-size: 1370px;
+  display: flex;
+  justify-content: space-around;
+  padding-block-start: 120px;
+  margin-inline: auto;
+}
+
+.achievements__cart {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.achievements__img {
+  inline-size: 70px;
+  block-size: 70px;
+}
+.achievements__text {
+  font-family: "Poppins", serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 500;
+  color: #000000;
+  margin-block-start: 10px;
+  display: flex;
+  flex-direction: column;
+}
+.achievements__text span {
+  color: #20B15A;
+  font-family: "Avenir", serif;
+  font-size: 40px;
+  line-height: 1.5;
+  font-weight: 900;
+  text-align: center;
 }
