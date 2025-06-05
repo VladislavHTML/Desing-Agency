@@ -218,6 +218,9 @@
   align-items: center;
   gap: 10px;
 }
+.cart__image {
+  inline-size: 100%;
+}
 .achievements__box {
   inline-size: 1370px;
   display: flex;
@@ -253,4 +256,45 @@
   line-height: 1.5;
   font-weight: 900;
   text-align: center;
+}
+
+.block3__top {
+  inline-size: 500px;
+}
+.block3__carts {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-block-start: 79px;
+  gap: 20px;
+}
+.block3__carts .cart:nth-child(1),
+.block3__carts .cart:nth-child(4) {
+  inline-size: 561px;
+  min-block-size: 500px;
+}
+.block3__carts .cart:nth-child(4) {
+  margin-block-start: auto;
+}
+.block3__carts .cart:nth-child(2),
+.block3__carts .cart:nth-child(3) {
+  inline-size: 561px;
+  min-block-size: 675px;
+}
+
+.top__title {
+  font-family: "Poppins", serif;
+  font-size: 20px;
+  line-height: 1.5;
+  font-weight: 500;
+  color: #20B15A;
+  margin-block-start: 60px;
+}
+.top__subtitle {
+  font-family: "Poppins", serif;
+  font-size: 30px;
+  line-height: 1.5;
+  font-weight: 600;
+  margin-block-start: 15px;
 }
