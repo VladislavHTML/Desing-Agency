@@ -349,19 +349,86 @@ gap: 20px;
 		&__top {
 		}
 
-		&__slider {
-		}
+		
 }
 .slider {
 
 		&__buttons {
+                  display: flex;
+                  flex-direction: row;
+                  gap: 20px;
+                 justify-content: end;
+                  .buttons__button:last-child{
+                        transform: rotate(180deg);
+                  }
+                 .buttons__button{
+                        inline-size: 80px;
+                        block-size: 80px;
+                        border: 1px solid #2B2A29;
+                        border-radius: 50%;
+                        aspect-ratio: 1/1;
+                        background-color: #fff;
+                  }
 		}
 
 		&__carts {
+                  display: flex;
+                  gap: 45px;
+                  justify-content: center;
+                  position: relative;
+                  content: "";
+                  inset-inline-start: 180px;
+                  margin-block-end: 118px;
 		}
 
 		&__cart {
+                  inline-size: 670px;
+                   box-shadow: 0 4px 4px 0 rgba(0,0,0,.25);
+                   border-radius: 20px;
+                  padding-inline: 40px;
+                  padding-block: 40px;
+                   text-align: left;
+                  
+                   .cart__text{
+                       font-family: "Avenir" ,serif;
+                        font-size: 18px;
+                        line-height: 1.3;
+                        font-weight: 400;
+                        color: #000;
+                        margin-block-end: 20px;
+                   }
+
 		}
+      
+            .slider__box {
+                 display: flex;
+                 flex-direction: row-reverse;
+                 justify-content: start;
+            .block__text{
+                  flex-direction: column;
+                  .text__title {
+                   font-family: "Poppins" ,serif;
+                  font-size: 20px;
+                  line-height: 1.2;
+                  font-weight: 600;
+		}
+
+		.text__subtitle {
+                        font-family: "Avenir" ,serif;
+                        font-size: 18px;
+                        line-height: 1.3;
+                        font-weight: 400;
+                       
+                  
+		}
+            }
+		
+
+		.box__icon {
+                  inline-size: 60px;
+                  block-size: 60px;
+		}
+}
 }
 .buttons {
 
