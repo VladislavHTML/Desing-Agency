@@ -98,6 +98,7 @@
   display: flex;
   justify-content: space-between;
   margin-block-start: 4.1875rem;
+  flex-wrap: wrap;
 }
 .block1 .block1__text {
   display: flex;
@@ -175,6 +176,7 @@
   justify-content: space-between;
   margin-block-start: 5.625rem;
   margin-block-end: 6.25rem;
+  flex-wrap: wrap;
 }
 .block2__cart {
   inline-size: 18.75rem;
@@ -183,6 +185,8 @@
   inline-size: 100%;
   block-size: 26.25rem;
   background-color: #FAFFFB;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .cart {
@@ -380,4 +384,157 @@
 .slider .slider__box .box__icon {
   inline-size: 3.75rem;
   block-size: 3.75rem;
+}
+
+.block5__subscribe {
+  display: flex;
+  justify-content: center;
+  margin-inline: auto;
+  flex-direction: column;
+  margin-block-start: 5.6875rem;
+  inline-size: 32.25rem;
+  text-align: center;
+}
+
+.subscribe__title {
+  font-family: "Poppins", serif;
+  font-size: 1.25rem;
+  line-height: 1.5;
+  font-weight: 500;
+  color: #20B15A;
+  margin-block-end: 1.5rem;
+}
+.subscribe__subtitle {
+  font-family: "Poppins", serif;
+  font-size: 1.875rem;
+  line-height: 1.5;
+  font-weight: 600;
+  text-transform: capitalize;
+  letter-spacing: 0.01875rem;
+}
+.subscribe__text {
+  font-family: "Avenir", serif;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #8B8B8B;
+  text-transform: capitalize;
+}
+.subscribe__form {
+  margin-block-start: 2.5625rem;
+  inline-size: 100%;
+  block-size: 4.0625rem;
+  border-radius: 0.9375rem;
+  border: #000 2px solid;
+  display: flex;
+  align-items: center;
+  padding-inline: 0.3125rem;
+  justify-content: space-between;
+  margin-block-end: 8.5625rem;
+}
+.subscribe__form input {
+  font-family: "Avenir", serif;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #8B8B8B;
+  text-transform: capitalize;
+}
+.subscribe__button {
+  font-family: "Poppins", serif;
+  font-size: 1rem;
+  line-height: 1.5;
+  font-weight: 500;
+  color: #fff;
+  background-color: #F55F1D;
+  border-radius: 0.9375rem;
+  inline-size: 8.125rem;
+  block-size: 3.5625rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer {
+  inline-size: 100%;
+  block-size: 100%;
+}
+.blocks__column {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-box {
+  display: flex;
+  justify-content: space-between;
+  margin-block-start: 4.75rem;
+  flex-wrap: wrap;
+}
+
+.blocks__column1 {
+  inline-size: 19.6875rem;
+}
+.blocks__column1 .column1__title {
+  font-family: "Poppins", serif;
+  font-size: 2.4375rem;
+  line-height: 1.5;
+  font-weight: 700;
+}
+.blocks__column1 .column1__text {
+  font-family: "Avenir", serif;
+  font-size: 1.25rem;
+  line-height: 1.5;
+  font-weight: 400;
+  margin-block-end: 1.25rem;
+}
+
+.blocks__column2 {
+  display: flex;
+  gap: 1.5625rem;
+  flex-direction: column;
+}
+.blocks__column2 .column2__title {
+  font-family: "Poppins", serif;
+  font-size: 1.25rem;
+  line-height: 1.5;
+  font-weight: 600;
+}
+.blocks__column2 .column2__link {
+  font-family: "Avenir", serif;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #000;
+}
+
+.blocks__column3 {
+  display: flex;
+  gap: 1.5625rem;
+  flex-direction: column;
+}
+
+.column3__title {
+  font-family: "Poppins", serif;
+  font-size: 1.25rem;
+  line-height: 1.5;
+  font-weight: 600;
+}
+.column3__text {
+  font-family: "Avenir", serif;
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: #000;
+  inline-size: 16.625rem;
+  text-align: left;
+}
+
+.social-networks {
+  display: flex;
+  gap: 0.9375rem;
+}
+
+.copyright {
+  margin-block-start: 4.375rem;
+  font-family: "Avenir", serif;
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: #000;
+  margin-block-end: 1.875rem;
 }
