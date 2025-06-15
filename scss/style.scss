@@ -162,8 +162,8 @@ display: flex;
 		}
 
 		.block1__image {
-          inline-size: 50%;
-          block-size: 100%;
+           inline-size: clamp(50rem, 10vw, 100rem);
+         
           
 		}
 
@@ -177,7 +177,7 @@ display: flex;
             margin-block-end: rem(34);
             background-color: #F8FFF9;
             img{
-                 inline-size: rem(114);
+                inline-size: clamp(2rem, 10vw, 20rem);
             
            
             }
@@ -185,7 +185,8 @@ display: flex;
 		}
 }
 .block2 {
-
+inline-size: 100%;
+block-size: 100%;
 		&__conteiner {
             inline-size: rem(495);
 		}
@@ -276,6 +277,7 @@ gap: rem(20);
 .achievements__box{
     inline-size: rem(1370);
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-around;
    padding-block-start: rem(120);
    margin-inline: auto;
@@ -288,6 +290,7 @@ gap: rem(20);
             justify-content: center;
             align-items: center;
             flex-direction: column;
+            gap: rem(20);
 		}
 
 		&__img {
@@ -647,4 +650,54 @@ gap: rem(20);
       font-weight: 500;
       color: #000;
       margin-block-end: rem(30);
+}
+@media (max-width: em(1390)){
+      .block1__conteiner{
+            display: flex;
+            flex-direction: column-reverse;
+            align-items: center;
+            
+            .block1__text {
+            order: 2;
+            margin-inline: auto;
+            margin-block-start: 0;
+            margin-block-end: rem(20);
+            flex-direction: row;
+            inline-size: 100%;
+            }
+            .block1__image {
+            order: 1;
+           margin-inline: auto;
+           margin-block-start: 0;
+           margin-block-end: 0;
+           inline-size: 70%;
+           block-size: 50%;
+            }
+          .block1__box2{
+            display: flex;
+            flex-direction: column;
+            .block1__link{
+                  inline-size: 100%;
+            }
+          }
+
+      }
+        
+}
+@media (max-width: em(769)){
+      .partners{
+            max-block-size: rem(70);
+      }
+      .block1__text{
+            .block1__title{
+                  font-size: rem(30);
+            }
+            .block1__subtitle{
+                  font-size: rem(16);
+            }
+      }
+      .block2__cart{
+            gap: rem(20);
+      }
+     
 }
