@@ -27,52 +27,65 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 });
 
-document.addEventListener('DOMContentLoaded', () => {
-    const track = document.querySelector('.slider__carts');
-    const cards = document.querySelectorAll('.slider__cart');
-    const nextBtn = document.querySelector('[data-direction="next"]');
-    const prevBtn = document.querySelector('[data-direction="prev"]');
+const sliderTrack = document.querySelector('.slider__carts');
+const btnPrev = document.querySelector('.slider__btn--prev');
+const btnNext = document.querySelector('.slider__btn--next');
 
-    const cardWidth = cards[0].offsetWidth + 45; // ширина + gap
-    const visibleCards = 3; // скільки одночасно видно
-    const totalCards = cards.length;
-    const maxIndex = totalCards - visibleCards;
+let currentIndex = 0;
 
-    let currentIndex = 0;
+// Функція визначає скільки карток видно
+function getVisibleSlides() {
+    const width = window.innerWidth;
+    if (width < 600) return 1;
+    if (width < 1024) return 2;
+    return 3;
+}
 
-    function updateSlider() {
-        const offset = currentIndex * cardWidth;
-        track.style.transform = `translateX(-${offset}px)`;
+// Основна функція оновлення слайдера
+function updateSlider() {
+    const slides = document.querySelectorAll('.slider__cart');
+    const visibleSlides = getVisibleSlides();
+    const totalSlides = slides.length;
+
+    // Обмеження currentIndex
+    if (currentIndex + visibleSlides > totalSlides) {
+        currentIndex = Math.max(0, totalSlides - visibleSlides);
     }
 
-    nextBtn.addEventListener('click', () => {
-        if (currentIndex < maxIndex) {
-            currentIndex++;
-            updateSlider();
-        }
-    });
+    const slideWidth = slides[0].offsetWidth;
+    const gap = parseFloat(getComputedStyle(sliderTrack).gap) || 0;
+    const offset = (slideWidth + gap) * currentIndex;
 
-    prevBtn.addEventListener('click', () => {
-        if (currentIndex > 0) {
-            currentIndex--;
-            updateSlider();
-        }
-    });
+    sliderTrack.style.transform = `translateX(-${offset}px)`;
+}
 
-    // автогортання (опційно)
-    let autoSlide = setInterval(() => {
-        currentIndex = currentIndex < maxIndex ? currentIndex + 3 : 0;
+// Навігація "вперед"
+btnNext.addEventListener('click', () => {
+    const visibleSlides = getVisibleSlides();
+    const slides = document.querySelectorAll('.slider__cart');
+    const totalSlides = slides.length;
+
+    if (currentIndex + visibleSlides < totalSlides) {
+        currentIndex += visibleSlides;
         updateSlider();
-    }, 5000);
-
-    const slider = document.querySelector('.slider');
-    slider.addEventListener('mouseenter', () => clearInterval(autoSlide));
-    slider.addEventListener('mouseleave', () => {
-        autoSlide = setInterval(() => {
-            currentIndex = currentIndex < maxIndex ? currentIndex + 3 : 0;
-            updateSlider();
-        }, 5000);
-    });
-
-    updateSlider(); // початкове позиціонування
+    }
 });
+
+// Навігація "назад"
+btnPrev.addEventListener('click', () => {
+    const visibleSlides = getVisibleSlides();
+    if (currentIndex - visibleSlides >= 0) {
+        currentIndex -= visibleSlides;
+        updateSlider();
+    }
+});
+
+// При зміні розміру вікна — оновити слайдер
+window.addEventListener('resize', updateSlider);
+
+// При зміні DOM (наприклад, додано/видалено слайд) — оновити
+const observer = new MutationObserver(updateSlider);
+observer.observe(sliderTrack, { childList: true, subtree: false });
+
+// Початковий запуск
+updateSlider();
