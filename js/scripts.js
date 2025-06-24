@@ -7,11 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const isActive = burger.classList.toggle("active");
         navigation.classList.toggle("active");
 
-        if (isActive) {
-            lockScroll();
-        } else {
-            unlockScroll();
-        }
+        isActive ? lockScroll() : unlockScroll();
     }
 
     function lockScroll() {
@@ -25,67 +21,28 @@ document.addEventListener("DOMContentLoaded", function () {
     if (burger) {
         burger.addEventListener("click", toggleMenu);
     }
-});
 
-const sliderTrack = document.querySelector('.slider__carts');
-const btnPrev = document.querySelector('.slider__btn--prev');
-const btnNext = document.querySelector('.slider__btn--next');
+    // === Мобільне підменю Services ===
+    const submenuTrigger = document.querySelector('.menu__item--has-submenu');
 
-let currentIndex = 0;
+    if (submenuTrigger && window.innerWidth < 1024) {
+        const link = submenuTrigger.querySelector('.menu__link');
 
-// Функція визначає скільки карток видно
-function getVisibleSlides() {
-    const width = window.innerWidth;
-    if (width < 600) return 1;
-    if (width < 1024) return 2;
-    return 3;
-}
+        if (link) {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                submenuTrigger.classList.toggle('submenu--open');
+            });
+        }
 
-// Основна функція оновлення слайдера
-function updateSlider() {
-    const slides = document.querySelectorAll('.slider__cart');
-    const visibleSlides = getVisibleSlides();
-    const totalSlides = slides.length;
-
-    // Обмеження currentIndex
-    if (currentIndex + visibleSlides > totalSlides) {
-        currentIndex = Math.max(0, totalSlides - visibleSlides);
-    }
-
-    const slideWidth = slides[0].offsetWidth;
-    const gap = parseFloat(getComputedStyle(sliderTrack).gap) || 0;
-    const offset = (slideWidth + gap) * currentIndex;
-
-    sliderTrack.style.transform = `translateX(-${offset}px)`;
-}
-
-// Навігація "вперед"
-btnNext.addEventListener('click', () => {
-    const visibleSlides = getVisibleSlides();
-    const slides = document.querySelectorAll('.slider__cart');
-    const totalSlides = slides.length;
-
-    if (currentIndex + visibleSlides < totalSlides) {
-        currentIndex += visibleSlides;
-        updateSlider();
+        // 👇 Закриття підменю при кліку поза ним
+        document.addEventListener('click', function (e) {
+            if (
+                submenuTrigger.classList.contains('submenu--open') &&
+                !submenuTrigger.contains(e.target)
+            ) {
+                submenuTrigger.classList.remove('submenu--open');
+            }
+        });
     }
 });
-
-// Навігація "назад"
-btnPrev.addEventListener('click', () => {
-    const visibleSlides = getVisibleSlides();
-    if (currentIndex - visibleSlides >= 0) {
-        currentIndex -= visibleSlides;
-        updateSlider();
-    }
-});
-
-// При зміні розміру вікна — оновити слайдер
-window.addEventListener('resize', updateSlider);
-
-// При зміні DOM (наприклад, додано/видалено слайд) — оновити
-const observer = new MutationObserver(updateSlider);
-observer.observe(sliderTrack, { childList: true, subtree: false });
-
-// Початковий запуск
-updateSlider();
