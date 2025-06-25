@@ -118,7 +118,7 @@ display: flex;
       padding-block: rem(16);
       border-radius: 12px;
       box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-      display: none;
+      
       flex-direction: column;
       gap: rem(20);
       min-inline-size: 100%;
@@ -840,8 +840,7 @@ block-size: 100%;
      }
 
  .menu__item--has-submenu.submenu--open .submenu {
-    display: flex;
-    flex-direction: column;
+    display: none;
     
   }
 

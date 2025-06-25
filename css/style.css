@@ -96,7 +96,6 @@
   padding-block: 1rem;
   border-radius: 12px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-  display: none;
   flex-direction: column;
   gap: 1.25rem;
   min-inline-size: 100%;
@@ -709,8 +708,7 @@
     justify-content: space-between;
   }
   .menu__item--has-submenu.submenu--open .submenu {
-    display: flex;
-    flex-direction: column;
+    display: none;
   }
 }
 @media (max-width: 26.625em) {
