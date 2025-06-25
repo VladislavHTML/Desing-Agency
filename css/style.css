@@ -711,7 +711,6 @@
   .menu__item--has-submenu.submenu--open .submenu {
     display: flex;
     flex-direction: column;
-    gap: 0.625rem;
   }
 }
 @media (max-width: 26.625em) {

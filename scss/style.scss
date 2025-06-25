@@ -74,7 +74,7 @@ display: flex;
   display: flex;
    align-items: center;
   justify-content: center;         
-        
+      
 		&__link {
             font-size: rem(16);
             line-height: 1.2;
@@ -86,6 +86,7 @@ display: flex;
             color: #000000;
             
 		}
+           
         li:last-child .menu__link{
              background-color: #20B15A;
             line-height: 1.5;
@@ -98,6 +99,7 @@ display: flex;
             justify-content: center;
            
         }
+         
        
       
         
@@ -139,6 +141,7 @@ display: flex;
     }
   }
 }
+
 
 
 .content {
@@ -779,6 +782,7 @@ block-size: 100%;
 		margin-inline: auto;
 		padding-block-start: rem(100);
 		padding-block-end: rem(100);
+            
 		}
 		
 	}
@@ -835,10 +839,10 @@ block-size: 100%;
 
      }
 
-.menu__item--has-submenu.submenu--open .submenu {
+ .menu__item--has-submenu.submenu--open .submenu {
     display: flex;
     flex-direction: column;
-    gap: rem(10);
+    
   }
 
 }
