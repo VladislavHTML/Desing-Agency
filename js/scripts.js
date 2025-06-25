@@ -7,7 +7,11 @@ document.addEventListener("DOMContentLoaded", function () {
         const isActive = burger.classList.toggle("active");
         navigation.classList.toggle("active");
 
-        isActive ? lockScroll() : unlockScroll();
+        if (isActive) {
+            lockScroll();
+        } else {
+            unlockScroll();
+        }
     }
 
     function lockScroll() {
@@ -34,15 +38,74 @@ document.addEventListener("DOMContentLoaded", function () {
                 submenuTrigger.classList.toggle('submenu--open');
             });
         }
-
-        // 👇 Закриття підменю при кліку поза ним
-        document.addEventListener('click', function (e) {
-            if (
-                submenuTrigger.classList.contains('submenu--open') &&
-                !submenuTrigger.contains(e.target)
-            ) {
-                submenuTrigger.classList.remove('submenu--open');
-            }
-        });
+    }
+    if (
+        submenuTrigger.classList.contains('submenu--open') &&
+        !submenuTrigger.contains(e.target)
+    ) {
+        submenuTrigger.classList.remove('submenu--open');
     }
 });
+
+
+
+// === Слайдер ===
+const sliderTrack = document.querySelector('.slider__carts');
+const btnPrev = document.querySelector('.slider__btn--prev');
+const btnNext = document.querySelector('.slider__btn--next');
+
+let currentIndex = 0;
+
+function getVisibleSlides() {
+    const width = window.innerWidth;
+    if (width < 600) return 1;
+    if (width < 1024) return 2;
+    return 3;
+}
+
+function updateSlider() {
+    const slides = document.querySelectorAll('.slider__cart');
+    const visibleSlides = getVisibleSlides();
+    const totalSlides = slides.length;
+
+    if (currentIndex + visibleSlides > totalSlides) {
+        currentIndex = Math.max(0, totalSlides - visibleSlides);
+    }
+
+    if (slides.length > 0) {
+        const slideWidth = slides[0].offsetWidth;
+        const gap = parseFloat(getComputedStyle(sliderTrack).gap) || 0;
+        const offset = (slideWidth + gap) * currentIndex;
+        sliderTrack.style.transform = `translateX(-${offset}px)`;
+    }
+}
+
+if (btnNext && btnPrev) {
+    btnNext.addEventListener('click', () => {
+        const visibleSlides = getVisibleSlides();
+        const slides = document.querySelectorAll('.slider__cart');
+        const totalSlides = slides.length;
+
+        if (currentIndex + visibleSlides < totalSlides) {
+            currentIndex += visibleSlides;
+            updateSlider();
+        }
+    });
+
+    btnPrev.addEventListener('click', () => {
+        const visibleSlides = getVisibleSlides();
+        if (currentIndex - visibleSlides >= 0) {
+            currentIndex -= visibleSlides;
+            updateSlider();
+        }
+    });
+}
+
+window.addEventListener('resize', updateSlider);
+
+const observer = new MutationObserver(updateSlider);
+if (sliderTrack) {
+    observer.observe(sliderTrack, { childList: true, subtree: false });
+}
+
+updateSlider();

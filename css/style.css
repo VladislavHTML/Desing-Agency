@@ -26,6 +26,12 @@
   justify-content: space-between;
   align-items: center;
   margin-block-start: 1.5625rem;
+  position: fixed;
+  content: "";
+  inline-size: 100%;
+  padding-inline-start: 1.25rem;
+  padding-inline-end: 1.25rem;
+  z-index: 50;
 }
 
 .burger {
@@ -719,5 +725,9 @@
   }
   .slider__carts {
     margin-block-end: 1.25rem;
+  }
+  .achievements__box {
+    display: flex;
+    flex-direction: column;
   }
 }
