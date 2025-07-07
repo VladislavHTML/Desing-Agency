@@ -6,12 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
     function toggleMenu() {
         const isActive = burger.classList.toggle("active");
         navigation.classList.toggle("active");
-
-        if (isActive) {
-            lockScroll();
-        } else {
-            unlockScroll();
-        }
+        isActive ? lockScroll() : unlockScroll();
     }
 
     function lockScroll() {
@@ -38,16 +33,18 @@ document.addEventListener("DOMContentLoaded", function () {
                 submenuTrigger.classList.toggle('submenu--open');
             });
         }
-    }
-    if (
-        submenuTrigger.classList.contains('submenu--open') &&
-        !submenuTrigger.contains(e.target)
-    ) {
-        submenuTrigger.classList.remove('submenu--open');
+
+        // Закриття підменю при кліку поза ним
+        document.addEventListener('click', function (e) {
+            if (
+                submenuTrigger.classList.contains('submenu--open') &&
+                !submenuTrigger.contains(e.target)
+            ) {
+                submenuTrigger.classList.remove('submenu--open');
+            }
+        });
     }
 });
-
-
 
 // === Слайдер ===
 const sliderTrack = document.querySelector('.slider__carts');
@@ -86,18 +83,14 @@ if (btnNext && btnPrev) {
         const slides = document.querySelectorAll('.slider__cart');
         const totalSlides = slides.length;
 
-        if (currentIndex + visibleSlides < totalSlides) {
-            currentIndex += visibleSlides;
-            updateSlider();
-        }
+        currentIndex = Math.min(currentIndex + visibleSlides, totalSlides - visibleSlides);
+        updateSlider();
     });
 
     btnPrev.addEventListener('click', () => {
         const visibleSlides = getVisibleSlides();
-        if (currentIndex - visibleSlides >= 0) {
-            currentIndex -= visibleSlides;
-            updateSlider();
-        }
+        currentIndex = Math.max(currentIndex - visibleSlides, 0);
+        updateSlider();
     });
 }
 

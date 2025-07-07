@@ -79,14 +79,13 @@ display: flex;
             font-size: rem(16);
             line-height: 1.2;
             font-weight: 400;
-            gap: rem(20);
+            gap: rem(10);
             text-decoration: none;
             display: flex;
             align-items: center;
             color: #000000;
-            
 		}
-           
+          
         li:last-child .menu__link{
              background-color: #20B15A;
             line-height: 1.5;
@@ -104,45 +103,103 @@ display: flex;
       
         
 }
-.menu__item {
-  position: relative;
-
-  &--has-submenu {
-    .submenu {
-      position: absolute;
-      content: "";
-      inset-block-start: 100%;
-      inset-inline-start: 0;
-      background: white;
-      padding-inline: rem(16);
-      padding-block: rem(16);
-      border-radius: 12px;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-      
-      flex-direction: column;
-      gap: rem(20);
-      min-inline-size: 100%;
-      z-index: 99;
-
-      .submenu__link {
-        text-decoration: none;
-        color: #000;
-        font-size: rem(14);
-        white-space: nowrap;
-
-        &:hover {
-          color: #20B15A;
-        }
-      }
+ .menu li:nth-child(2) .menu__link {
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      border: 2px solid #20B15A;
+      padding-inline: rem(10);
+      padding-block: rem(10);
+      border-radius: 10px;
+      transition: all 0.3s ease;
+       
     }
-
-    &:hover .submenu {
-      display: flex;
+  }
+}
+.menu li:nth-child(3) .menu__link {
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      border: 2px solid #20B15A;
+      padding-inline: rem(10);
+      padding-block: rem(10);
+      border-radius: 10px;
+      transition: all 0.3s ease;
+       
+    }
+  }
+}
+.menu li:nth-child(4) .menu__link {
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      border: 2px solid #20B15A;
+      padding-inline: rem(10);
+      padding-block: rem(10);
+      border-radius: 10px;
+      transition: all 0.3s ease;
+       
+    }
+  }
+}
+.menu li:nth-child(5) .menu__link {
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      background-color: rgba(44, 86, 64, 1);
+      transition: all 0.3s ease;
     }
   }
 }
 
+.menu__item--has-submenu {
+  position: relative;
 
+  .submenu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: white;
+   padding-inline: rem(16);
+   padding-block: rem(16);
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: rem(12);
+   
+    z-index: 99;
+
+   
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(-10px);
+   
+    transition: all 0.3s ease;
+
+    .submenu__link {
+      text-decoration: none;
+      color: #000;
+      font-size: rem(16);
+      white-space: nowrap;
+      
+      @media (hover: hover) and (pointer: fine) {
+        &:hover {
+          background-color: #FFDCCA;
+        }
+      }
+    }
+  }
+
+  
+  @media (hover: hover) and (pointer: fine) {
+    &:hover .submenu {
+      max-block-size: rem(500);
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+  }
+
+  
+  
+}
 
 .content {
     flex: 1 1 auto;
@@ -165,7 +222,7 @@ display: flex;
         &__box{
             display: flex;
             justify-content: space-between;
-           margin-block-start: rem(67);
+           margin-block-start: rem(87);
            flex-wrap: wrap;
         }
 		.block1__text {
@@ -205,6 +262,12 @@ display: flex;
             justify-content: center;
             align-items: center;
             margin-block-start: rem(32);
+            @media (hover: hover) and (pointer: fine) {
+            &:hover {
+                  background-color: rgba(44, 86, 64, 1);
+                  transition: all 0.3s ease;
+            }
+            }
 		}
 
 		.block1__image {
@@ -266,7 +329,11 @@ block-size: 100%;
 		}
 
 		&__cart {
-            inline-size: rem(300);
+            inline-size: rem(380);
+            box-shadow: 0 4px 20px 0 rgba(0,0,0,.1);
+             border-radius: 30px 30px 30px 30px;
+             padding-inline: rem(30);
+             padding-block: rem(50);
 		}
 
 		
@@ -302,10 +369,22 @@ block-size: 100%;
             line-height: 1.5;
             font-weight: 400;
             color: #000;
-            margin-block-start: rem(60);
+            margin-block-start: rem(30);
             display: flex;
             align-items: center;
             gap: rem(10);
+           padding-block: rem(20);
+            @media (hover: hover) and (pointer: fine) {
+            &:hover {
+                  background-color: rgba(245, 95, 29, 1);
+                  transition: all 0.3s ease;
+                  padding-inline: rem(15);
+                  padding-block: rem(20);
+                  border-radius: 10px;
+                  inline-size: 50%;
+                   
+            }
+             }
 		}
 
 		&__image {
@@ -502,7 +581,12 @@ block-size: 100%;
                   border-radius: 50%;
                   aspect-ratio: 1/1;
                   background-color: #fff;
-
+                   @media (hover: hover) and (pointer: fine) {
+                  &:hover {
+                        background-color: rgb(98, 192, 143);
+                        transition: all 0.3s ease;
+                  }
+                  }
 		}
 }
 .block5 {
@@ -579,6 +663,12 @@ block-size: 100%;
                   display: flex;
                   align-items: center;
                   justify-content: center;
+                   @media (hover: hover) and (pointer: fine) {
+                  &:hover {
+                        background-color: #865642;
+                        transition: all 0.3s ease;
+                  }
+                  }
 		}
 }
 .footer {
@@ -637,6 +727,13 @@ block-size: 100%;
                   font-size: rem(16);
                   font-weight: 500;
                   color: #000;
+                   @media (hover: hover) and (pointer: fine) {
+                 
+                  transition: all 0.3s ease;
+                  &:hover {
+                        transform: translateX(10px);
+                  }
+                  }
       }
 }
 	
@@ -671,6 +768,16 @@ block-size: 100%;
 .social-networks {
       display: flex;
       gap: rem(15);
+      .social-networks__link{
+             display: inline-block;
+             @media (hover: hover) and (pointer: fine) {
+                 
+                  transition: all 0.3s ease;
+                  &:hover {
+                        transform: translateY(-10px);
+                  }
+                  }
+      }
 }
 .copyright {
       margin-block-start: rem(70);
@@ -714,12 +821,7 @@ block-size: 100%;
 .slider__cart{
       flex: 0 0 calc((100% - 90px) / 3);
 }  
-  .submenu {
-      &:hover{
-       display: flex;
-      }
-      
-    }      
+  
 }
 @media (max-width: em(769)){
        body.scroll-lock {
@@ -839,11 +941,111 @@ block-size: 100%;
 
      }
 
- .menu__item--has-submenu.submenu--open .submenu {
-    display: none;
+  
+.submenu--open {
+    .submenu {
+      display: flex;
     
+      overflow: visible;
+      opacity: 1;
+     
+    
+      
+    }
+  }
+   
   }
 
+@media (hover: none) and (pointer: coarse){
+  		.block1__link {
+		background-color: #20B15A;
+             font-family: "Poppins",serif;
+            font-size: 20px;
+            line-height: 1.5;
+            font-weight: 400;
+            color: #FFFFFF;
+            border-radius: rem(30);
+            inline-size: rem(175);
+            block-size: rem(70);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-block-start: rem(32);
+	}
+
+		}
+@media (hover: none) and (pointer: coarse){
+  		.cart__link {
+		 font-family: "Avenir" ,serif;
+            font-size: clamp(1rem, 2vw, 1.125rem);
+            line-height: 1.5;
+            font-weight: 400;
+            color: #000;
+            margin-block-start: rem(30);
+            display: flex;
+            align-items: center;
+            gap: rem(10);
+           padding-block: rem(20);
+	}
+@media (hover: none) and (pointer: coarse){
+           .slider__btn{
+                   cursor: pointer;
+                   inline-size: rem(80);
+                  block-size: rem(80);
+                  border: 1px solid #2B2A29;
+                  border-radius: 50%;
+                  aspect-ratio: 1/1;
+                  background-color: #fff;
+                  
+		}
+
+}
+@media (hover: none) and (pointer: coarse){
+           .subscribe__button{
+                    font-family: "Poppins" ,serif;
+                  font-size: rem(16);
+                  line-height: 1.5;
+                  font-weight: 500;
+                  color: #fff;
+                  background-color: #F55F1D;
+                  border-radius: rem(15);
+                  inline-size: rem(130);
+                  block-size: rem(57);
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  
+		}
+
+}
+@media (hover: none) and (pointer: coarse){
+           .column2__link{
+                     font-family: "Avenir", serif;
+                  font-size: rem(16);
+                  font-weight: 500;
+                  color: #000;
+                  
+		}
+
+}
+@media (hover: none) and (pointer: coarse){
+           .column2__link{
+                     font-family: "Avenir", serif;
+                  font-size: rem(16);
+                  font-weight: 500;
+                  color: #000;
+                  
+		}
+
+}
+.social-networks__link{
+             display: inline-block;
+             @media (hover: none) and (pointer: coarse) {
+                  &:hover {
+                        transform: translateY(0px);
+                  }
+                  }
+      }
 }
 @media (max-width: em(426)){
     .block1__text{
@@ -853,7 +1055,12 @@ block-size: 100%;
     }
     .block2__carts{
       margin-block-end: rem(20);
+      .block2__cart{
+     display: flex;
+     flex-direction: column;
     }
+    }
+    
     .slider__carts{
       margin-block-end: rem(20);
     }
